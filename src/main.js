@@ -15,6 +15,8 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
-})
+});
 
-
+/*$(function () {
+ $("body").css("backgroundColor","#ddd")
+})*/
