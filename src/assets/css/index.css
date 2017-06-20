@@ -1,0 +1,20 @@
+/*各个路由内容的样式 写的时候分模块 便于以后优化*/
+/*首页*/
+.activeClass{background-color: #ccc;}
+
+/*左侧侧边栏*/
+.sideBar{    position: fixed;
+  width: 186px;
+  top: 72px;
+  left: 16px;
+  border: 1px solid #ccc;
+  background-color: #fff;}
+.sideList{padding-top:50px;}
+.sideList dt{line-height:41px;position:relative;height:41px;cursor:pointer;padding:0 20px;font-size:14px;}
+.sideList dt i{display:block;position:absolute;right:20px;width:8px;height:5px;top:18px;overflow:hidden;}
+.sideList dt:hover{background:#d7d7d7;color:#8d8d8d;}
+.sideList dt.dtcurr{height:40px;border-bottom:1px solid #DDD;}
+.sideList dt.dtcurr i{background-position:-20px -60px;}
+.sideList dd{display:none;}
+.sideList dd a{padding:0 20px 0 38px;line-height:33px;height:33px;display:block;}
+.sideList dd a:hover,.sideList dd.ddcurr a{color:#3d6fcc;}
