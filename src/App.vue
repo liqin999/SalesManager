@@ -70,7 +70,8 @@
           <router-view></router-view>
         </div>
         <div class="rightInfo" style="min-height: 800px;border: 1px solid green;position: relative;top: 72px;width: calc(100% - 170px);">
-         Body content
+          <router-view  name="center"></router-view>
+        <span>主题内容部分</span>
         </div>
       </div>
     </div>
