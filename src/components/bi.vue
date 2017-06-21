@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="sideBar">
       <div class="sideList">
         <dl v-for="(outeritem,index) in slideList">
@@ -13,7 +14,57 @@
             </router-link>
           </dd>
         </dl>
+
+        <div class="accordion" id="accordion2">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+               菜单一
+              </a>
+            </div>
+            <div id="collapseOne" class="accordion-body">
+              <div class="accordion-inner">
+                Anim pariatur cliche...
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                菜单一
+              </a>
+            </div>
+            <div id="collapseTwo" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Anim pariatur cliche...
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapsethree">
+                菜单三
+              </a>
+            </div>
+            <div id="collapsethree" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Anim pariatur cliche...
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+     </div>
+  <!--嵌套路由-->
+    <div class="rightInfos">
+      <transition  mode="out-in">
+        <router-view  name="center"></router-view>
+      </transition>
+    </div>
+
   </div>
 </template>
 
@@ -112,9 +163,12 @@
           $(".sideList").on("click","dd",function(){
             frame.menuCurrent($(this))
           })
-        })}
+      })}
     }
   }
+
+
+
 
 </script>
 <style>

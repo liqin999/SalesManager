@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container-fluid p-relative">
     <!--导航条-->
-    <nav class="navbar nav-pills p-fixed" style="z-index: 8">
+    <nav class="navbar nav-pills p-fixed" style="z-index: 8;width: 100%;top: -2px;">
       <div class="container-fluid s-heade">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <img class="headlogo" src="./assets/headlogo.jpg" alt=""/>
@@ -64,14 +64,10 @@
       </div>
     </nav>
 
-    <div class="container-fluid " >
+    <div class="container-fluid" >
       <div class="row-fluid">
-        <div class="leftSlide">
+        <div class="mainCon p-relative">
           <router-view></router-view>
-        </div>
-        <div class="rightInfo" style="min-height: 800px;border: 1px solid green;position: relative;top: 72px;width: calc(100% - 170px);">
-          <router-view  name="center"></router-view>
-        <span>主题内容部分</span>
         </div>
       </div>
     </div>
@@ -93,8 +89,8 @@ window.onload= function () {
 
 <style>
   .s-heade{color: #fff}
-  .leftSlide{
-
+  .mainCon{
+    width: 100%;border: 3px solid green;min-height: 800px;
   }
   .rightInfo{
     float: left;

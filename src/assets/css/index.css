@@ -18,3 +18,13 @@
 .sideList dd{display:none;}
 .sideList dd a{padding:0 20px 0 38px;line-height:33px;height:33px;display:block;}
 .sideList dd a:hover,.sideList dd.ddcurr a{color:#3d6fcc;}
+
+/*右边的主题部分*/
+.rightInfos{
+  background-color: #fff;
+  border: 1px solid gold;
+  min-height: 700px;
+  right: 0;
+  position: absolute;
+  top: 68px;
+  width: calc(100% - 213px);;}

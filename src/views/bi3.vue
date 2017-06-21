@@ -1,5 +1,5 @@
 <template>
-    <div style="font-size: 30px;color: gold">我说BI第3个内容</div>
+    <div class="mt50" style="font-size: 30px;color: gold">我是BI第3个内容</div>
 </template>
 
 <script>
