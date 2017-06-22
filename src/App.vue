@@ -84,32 +84,16 @@ window.onload= function () {
   var app=document.getElementById("app");
   app.style.height=_docH+"px";
 };
-
 </script>
 
 <style>
-  .s-heade{color: #fff}
-  .mainCon{
-    width: 100%;border: 3px solid green;min-height: 800px;
-  }
-  .rightInfo{
-    float: left;
-    margin-left: 200px;
-  }
+.s-heade{color: #fff}
+.mainCon{ width: 100%;border: 3px solid green;min-height: 800px; }
+.rightInfo{float: left;margin-left: 200px }
 .headlogo{float: left}
 .head-right{width: 200px;float: right}
-.nav-pills{
-  background: url("./assets/img/skin/headbg.jpg") repeat-x 0 0;
-  height: 70px;
-  clear: both
-}
+.head-right .pointer:hover{text-decoration: underline}
+.nav-pills{background: url("./assets/img/skin/headbg.jpg") repeat-x 0 0;  height: 70px;  clear: both}
 .navbar-nav>li>a{color: #fff}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  border: 1px solid firebrick;
-}
+#app {  font-family: 'Avenir', Helvetica, Arial, sans-serif;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;  text-align: center;  color: #2c3e50;  border: 1px solid firebrick;}
 </style>

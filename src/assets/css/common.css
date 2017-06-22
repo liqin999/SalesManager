@@ -37,3 +37,6 @@
 
 /*清除bootstrap的默认样式*/
 .container-fluid{padding-left: 0;padding-right: 0}
+a{color: #666;text-decoration:none;out-line: none}
+a:link,a:active,a:visited,a:hover{color:#666;text-decoration:none;}
+

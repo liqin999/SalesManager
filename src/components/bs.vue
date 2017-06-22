@@ -1,31 +1,63 @@
+<!-- 备注： 修改router-link 里面的 path 对应相应的父路由 -->
 <template>
+<div>
   <div class="sideBar">
     <div class="sideList">
-      <dl v-for="(outeritem,index) in slideList">
-        <dt class="dtcurr">{{outeritem.title}} {{ index }} <i></i></dt>
-        <dd v-for="(inneritem,innerindex) in outeritem.nextmemu" :class="{ block: (index === 0) }">
-          <a href="#">{{inneritem}}{{ innerindex }}</a>
-        </dd>
-      </dl>
+      <div class="accordion" id="accordion2">
+        <div class="accordion-group slideWrap"  v-for="(outeritem,index) in slideList">
+          <div class="accordion-heading slideHead">
+            <!--字符串的拼接-->
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"  :href=" '#'+index" >
+              {{outeritem.title}}
+            </a>
+          </div>
+          <div :id='index' class="accordion-body collapse in">
+            <div  class="accordion-inner slideInner"  v-for="(inneritem,innerindex) in outeritem.nextmemu" :class="{ block: (index === 0) }">
+              <router-link exact :to="{path:'/bs/'+outeritem.msg+'/'+inneritem.info}" style="color: #666" >
+                {{inneritem.menu}}
+              </router-link>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
+  <!--嵌套路由-->
+  <div class="rightInfos">
+    <transition  mode="out-in">
+      <router-view  name="center"></router-view>
+    </transition>
+  </div>
+</div>
 </template>
 
 <script>
-  //动态路由机制
+  //动态路由机制  这些数据是从后台动态 暂时造假数据
 
   var data=[//后期使用ajax从后台获取到
     {
-      title:"商务分析one",
-      nextmemu:["经营概况","会员概况","订单统计"]
+      title:"公共资源",//返回名字
+      msg:"ggzy",
+      nextmemu:[
+        {menu:"公海数据",info:"sw1"},
+        {menu:"领导推荐",info:"sw2"}
+      ]
     },
     {
-      title:"商务分析two",
-      nextmemu:["模板管理","商城设置","验证码设置"]
+      title:"客户定位",
+      msg:"khdw",
+      nextmemu:[
+        {menu:"客户定位",info:"sw3"}
+      ]
     },
     {
-      title:"商务分析three",
-      nextmemu:["会员列表","会员等级","验证码设置"]
+      title:"添加客户",
+      msg:"tjkh",
+      nextmemu:[
+        {menu:"添加客户",info:"sw4"},
+        {menu:"添加客户2",info:"sw4"}
+      ]
     }
   ];
 
@@ -41,53 +73,15 @@
     watch:{
       $route: function () {
         //路由发生变化的时候 $route会重新赋值 监控这个属性，执行函数
-        this.slideMenu();
+
       }
     },
     created: function () {
       // 渲染这个组件会调用一次这个生命周期函数
       // 复用这个组件，这个函数不会再次被调用了
-      this.slideMenu();
     },
     methods:{
-      //执行的函数形式
-      slideMenu:function(){
-        var frame={//功能方法
-          sideBarToggle:function(num,delay){
-            var sideBar=$(".sideBar"),_left=sideBar.position().left,other=$(".container,.copyright");
-            //获得元素的坐标
-            if(!sideBar.is(":animated")){
-              if(_left==0){
-                sideBar.animate({left:-num+"px"},delay);
-                other.animate({marginLeft:0},delay);
-              }else{
-                sideBar.animate({left:0},delay);
-                other.animate({marginLeft:num+"px"},delay);
-              }
-            }
-          },
-          menuToggle:function(obj){//展开或收起二级菜单
-            obj.toggleClass("dtcurr").siblings("dd").slideToggle();
-          },
-          menuCurrent:function(obj){//选中当前二级菜单
-            $("title",document).text(function(){
-              return obj.text();
-            })
-            $(".sideList dd").removeClass("ddcurr")
-            obj.addClass("ddcurr");
-          }
-        };
-        $(function () {
-          $(".sideBarBtn").click(function(){
-            frame.sideBarToggle(187,300);
-          });
-          $(".sideList").on("click","dt",function(){
-            frame.menuToggle($(this))
-          });
-          $(".sideList").on("click","dd",function(){
-            frame.menuCurrent($(this))
-          })
-        })}
+
     }
   }
 

@@ -5,11 +5,19 @@ import index from '@/components/index'
 import bi from '@/components/bi'
 import bs from '@/components/bs'
 import order from '@/components/order'
-import bi1 from '@/views/bi1'
-import bi2 from '@/views/bi2'
-import bi3 from '@/views/bi3'
-import bi4 from '@/views/bi4'
-import bi5 from '@/views/bi5'
+
+import bi1 from '@/views/bi/bi1'
+import bi2 from '@/views/bi/bi2'
+import bi3 from '@/views/bi/bi3'
+import bi4 from '@/views/bi/bi4'
+import bi5 from '@/views/bi/bi5'
+
+import bs1 from '@/views/bs/bs1'
+import bs2 from '@/views/bs/bs2'
+import bs3 from '@/views/bs/bs3'
+import bs4 from '@/views/bs/bs4'
+
+import order1 from '@/views/order/order1'
 
 Vue.use(Router);
 
@@ -28,8 +36,7 @@ var  router = new Router({//路由配置项 嵌套路由
   routes: [
     {
       path: '/',
-      name: 'bi',
-      component: bi,
+      component: bi,//初始路由显示
       alias: '/home'//组件的别名
     },
     {
@@ -38,7 +45,6 @@ var  router = new Router({//路由配置项 嵌套路由
       children: [
         {
           path: '/bi/tj/bi1',
-          name: 'bi1',
           components: {
             default: bi,
             center: bi1//命名路由
@@ -46,7 +52,6 @@ var  router = new Router({//路由配置项 嵌套路由
         },
         {
           path: '/bi/tj/bi2',
-          name: 'bi2',
           components: {
             default: bi,
             center: bi2
@@ -54,7 +59,6 @@ var  router = new Router({//路由配置项 嵌套路由
         },
         {
           path: '/bi/tj/bi3',
-          name: 'bi3',
           components: {
             default: bi,
             center: bi3
@@ -62,7 +66,6 @@ var  router = new Router({//路由配置项 嵌套路由
         },
         {
           path: '/bi/xt/bi4',
-          name: 'bi4',
           components: {
             default: bi,
             center: bi4
@@ -70,11 +73,14 @@ var  router = new Router({//路由配置项 嵌套路由
         },
         {
           path: '/bi/xt/bi5',
-          name: 'bi5',
           components: {
             default: bi,
             center: bi5
           }
+        },
+        {
+          path:"*",//子路由中默认显示
+          redirect: {path: '/bi'}
         }
       ]
 
@@ -82,12 +88,70 @@ var  router = new Router({//路由配置项 嵌套路由
     {
       path: '/bs',
       name: 'BS',
-      component: bs
+      component: bs,
+      children: [
+        {
+          path: '/bs/ggzy/sw1',
+          name: 'bs1',
+          components: {
+            default: bs,
+            center: bs1//命名路由
+          }
+        },
+        {
+          path: '/bs/ggzy/sw2',
+          name: 'bs2',
+          components: {
+            default: bs,
+            center: bs2
+          }
+        },
+        {
+          path: '/bs/khdw/sw3',
+          name: 'bs3',
+          components: {
+            default: bs,
+            center: bs3
+          }
+        },
+        {
+          path: '/bs/tjkh/sw4',
+          name: 'bs4',
+          components: {
+            default: bs,
+            center: bs4
+          }
+        },
+        {
+          path:"*",//项目重定向
+          redirect: {path: '/bs'}
+        }
+
+      ]
     },
     {
       path: '/order',
       name: 'Order',
-      component: order
+      component: order,
+      children: [
+        {
+          path: '/order/ddgl/order1',
+          name: 'order1',
+          components: {
+            default: order,
+            center: order1
+          }
+        },
+        {
+          path:"*",
+           redirect: {path: '/order'}
+        }
+
+      ]
+    },
+    {
+      path:"*",
+    /*  redirect: {path: '/bi'}*/
     }
   ]
 });
