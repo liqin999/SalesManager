@@ -60,17 +60,17 @@
       title:"结算单管理",
       msg:"jsd",
       nextmemu:[
-        {menu:"审核",info:"dd14"},
-        {menu:"特批",info:"dd15"},
-        {menu:"退赔",info:"dd16"},
-        {menu:"待付款",info:"dd17"},
-        {menu:"结算单查询",info:"dd18"},
-        {menu:"我的结算单",info:"dd19"},
-        {menu:"在线购买单",info:"dd20"},
-        {menu:"退转款查询",info:"dd21"},
-        {menu:"5.19前合同退转款查询",info:"dd22"},
-        {menu:"5.19前合同退转款添加",info:"dd23"},
-        {menu:"付款列表",info:"dd24"}
+        {menu:"审核",info:"order14"},
+        {menu:"特批",info:"order15"},
+        {menu:"退赔",info:"order16"},
+        {menu:"待付款",info:"order17"},
+        {menu:"结算单查询",info:"order18"},
+        {menu:"我的结算单",info:"order19"},
+        {menu:"在线购买单",info:"order20"},
+        {menu:"退转款查询",info:"order21"},
+        {menu:"5.19前合同退转款查询",info:"order22"},
+        {menu:"5.19前合同退转款添加",info:"order23"},
+        {menu:"付款列表",info:"order24"}
       ]
     }
   ];

@@ -18,8 +18,15 @@ import bs3 from '@/views/bs/bs3'
 import bs4 from '@/views/bs/bs4'
 
 import order1 from '@/views/order/order1'
+import order2 from '@/views/order/order2'
 
 Vue.use(Router);
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+import DataTables from 'vue-data-tables'
+Vue.use(ElementUI);
+Vue.use(DataTables);
 
 var routerObj=[];//定义所有的路由信息
 
@@ -140,6 +147,14 @@ var  router = new Router({//路由配置项 嵌套路由
           components: {
             default: order,
             center: order1
+          }
+        },
+        {
+          path: '/order/ddgl/order2',
+          name: 'order2',
+          components: {
+            default: order,
+            center: order2
           }
         },
         {

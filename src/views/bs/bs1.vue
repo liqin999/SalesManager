@@ -1,5 +1,6 @@
 <template>
   <div class="mt50" style="font-size: 30px;color: blue">我是BS第一个内容</div>
+
 </template>
 
 <script>
