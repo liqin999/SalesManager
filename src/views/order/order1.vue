@@ -83,7 +83,12 @@
 
           <!--尾部-->
            <span class="form-inline">
-                <input class="pageIndex form-control" style="width:60px;text-align:center" type="text" v-model="pageCurrent "  @keyup.enter="showPage(pageCurrent,$event,true)"/>
+                <input class="pageIndex form-control"
+                       style="width:60px;text-align:center"
+                       type="text"
+                       v-model="pageCurrent"
+                       @keyup.enter="showPage(pageCurrent,$event,true)"
+                  />
                </span>
           <span>{{pageCurrent}}/{{pageCount}}</span>
           </div>
@@ -199,7 +204,7 @@
         //分页数
         pageCount: 20,
         //当前页面
-        pageCurrent: 2,
+        pageCurrent: 1,
         //分页大小
         pagesize: 10,
         //显示分页按钮数
@@ -242,7 +247,6 @@
 
     },
     methods: {
-
       showModalDel:function(index){//删除用户
         $('#layer').modal('show');
         this.nowIndex=index;
@@ -270,7 +274,6 @@
         this.searchname="";//将数据清空，由于数据驱动视图实时的更新，所以恢复到原始的数据
       },
       showPage: function (pageIndex, $event, forceRefresh) {//显示分页的代码
-        console.log(this.showPages)
         var This=this;
         if (pageIndex > 0) {
           if (pageIndex > this.pageCount) {
@@ -305,7 +308,6 @@
            age: (i + (pageIndex - 1) * 20)
            };
            }
-          console.log(pageIndex+","+ this.pagesize);//想后台传递当前的页数和显示的条数
           var that=this;
           function getData(){//动态获取数据  slice可以控制显示的条数
             that.$http.get('../js/data.json',{
@@ -335,20 +337,22 @@
             else if (pageIndex >= this.pageCount - (this.showPages - 3) / 2) {
               this.showPagesStart = this.pageCount - this.showPages + 2;
               this.showPageEnd = this.pageCount;
-              console.log("showPage2")
+              console.log("showPage2");
             }
             else {
-              console.log("showPage3")
+              console.log("showPage3");
               this.showPagesStart = pageIndex - (this.showPages - 3) / 2;
-              this.showPageEnd = pageIndex + (this.showPages - 3) / 2;
+              if(!isNaN(pageIndex)){//用于处理用户输入的不是数字的处理
+
+              }else{
+
+              }
+              this.showPageEnd = Number(pageIndex) + (Number(this.showPages) - 3) / 2;//将输入的值强制转成数字
             }
           }
           console.log("showPagesStart:" + this.showPagesStart + ",showPageEnd:" + this.showPageEnd + ",pageIndex:" + pageIndex);
         }
       }
-    },
-    filters: {
-
     }
 
   }
