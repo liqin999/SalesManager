@@ -11,7 +11,11 @@ import '@/assets/js/common'
 import '@/assets/lib/bootstrap.js'
 import '@/assets/lib/vue-resource.js'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+
+
+
 
 /* eslint-disable no-new */
 new Vue({

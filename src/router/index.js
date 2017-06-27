@@ -28,6 +28,11 @@ import DataTables from 'vue-data-tables'
 Vue.use(ElementUI);
 Vue.use(DataTables);
 
+/*引入vee验证插件*/
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
+
+
 var routerObj=[];//定义所有的路由信息
 
 var  router = new Router({//路由配置项 嵌套路由

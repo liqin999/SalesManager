@@ -11,3 +11,14 @@
 
 /*右边的主题部分*/
 .rightInfos{  background-color: #fff;  border: 1px solid gold;  min-height: 700px;  right: 0;  position: absolute;  top: 68px;  width: calc(100% - 213px);}
+
+
+/*验证的校验样式*/
+input{outline:medium;}/*去除input的边框*/
+
+.input.is-danger, .textarea.is-danger {
+  border-color: #ff3860;
+}
+.help.is-danger {
+  color: #ff3860;
+}

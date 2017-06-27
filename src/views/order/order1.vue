@@ -112,6 +112,7 @@
                 <label for="recipient-age" class="control-label" >年龄:</label>
                 <input type="text" class="form-control" id="recipient-age" v-model="addAge">
               </div>
+
             </form>
           </div>
           <div class="modal-footer">
