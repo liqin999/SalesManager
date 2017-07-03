@@ -22,12 +22,6 @@ import order2 from '@/views/order/order2'
 
 Vue.use(Router);
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
-import DataTables from 'vue-data-tables'
-Vue.use(ElementUI);
-Vue.use(DataTables);
-
 /*引入vee验证插件*/
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
