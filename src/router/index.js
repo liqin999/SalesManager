@@ -22,8 +22,6 @@ import order2 from '@/views/order/order2'
 
 Vue.use(Router);
 
-
-
 var routerObj=[];//定义所有的路由信息
 
 var  router = new Router({//路由配置项 嵌套路由
@@ -167,6 +165,7 @@ var  router = new Router({//路由配置项 嵌套路由
   ]
 });
 
-export default router;
+export default router
+
 
 

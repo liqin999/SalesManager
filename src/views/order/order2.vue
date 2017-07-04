@@ -14,7 +14,6 @@
     </div>
   </div>
 </template>
-
 <script>
   /*引入vee验证插件*/
   import Vue from 'vue'
