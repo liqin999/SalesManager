@@ -24,7 +24,12 @@ Vue.use(Router);
 
 /*引入vee验证插件*/
 import VeeValidate from 'vee-validate';
-Vue.use(VeeValidate);
+//修改语言包
+import zh_CN from '@/assets/js/zh_CN';
+
+Vue.use(VeeValidate,{
+  locale: 'zh_CN',
+});
 
 
 var routerObj=[];//定义所有的路由信息
@@ -170,6 +175,7 @@ var  router = new Router({//路由配置项 嵌套路由
   ]
 });
 
-export default router;
+export default router
+
 
 
