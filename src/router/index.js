@@ -22,9 +22,6 @@ import order2 from '@/views/order/order2'
 
 Vue.use(Router);
 
-/*引入vee验证插件*/
-import VeeValidate from 'vee-validate';
-Vue.use(VeeValidate);
 
 
 var routerObj=[];//定义所有的路由信息

@@ -142,9 +142,7 @@
     </div>
     </div>
    </div>
-
 </template>
-
 <script>
   var arrayData=[
     {
