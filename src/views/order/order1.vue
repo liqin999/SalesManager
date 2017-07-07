@@ -29,12 +29,14 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="(item,index) in filterArrayData">
-            <td class="text-center">{{item.name}}</td>
-            <td>{{item.age}}</td>
+          <!--<tr v-for="(item,index) in filterArrayData">-->
+          <tr v-for="(item,index) in arrayData">
+            <td width="40%" class="text-center">{{item.name}}</td>
+            <td width="30%">{{item.age}}</td>
             <td>
               <a href="javascript:void(0)">
-                   <button class="btn btn-primary btn-sm" @click="showModalDel(index,item.age)" data-toggle="modal">删除</button>
+                   <button class="btn btn-primary btn-sm" @click="showModalEdit(index,item.name,item.age)" data-toggle="modal">编辑</button>
+                   <button class="btn btn-warning btn-sm" @click="showModalDel(index,item.age)" data-toggle="modal">删除</button>
                </a>
             </td>
           </tr>
@@ -123,6 +125,10 @@
         </div>
       </div>
 
+    <!--edit Model 组件方式引入-->
+
+    <editModal v-if="isShowEdit" mess="EditModal" :EditingNam="EditingName" :EditingAg="EditingAge"  :EditingInde="EditingIndex" v-on:editMsg="handleEdit" v-on:closeEditModal="handleClose"></editModal>
+
     <!--Delete Modal-->
     <div role="dialog" class="modal fade bs-example-modal-sm" id="layer">
       <div class="modal-dialog">
@@ -144,50 +150,51 @@
    </div>
 </template>
 <script>
+  import editModal from './editModal.vue'
   var arrayData=[
     {
       "name":"zhangsan",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin0",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin1",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin2",
       "age":12
     }
     ,
     {
-      "name":"liqin",
+      "name":"liqin3",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin4",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin5",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin6",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin7",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin8",
       "age":12
     },
     {
-      "name":"liqin",
+      "name":"liqin9",
       "age":11
     },
     {
@@ -213,7 +220,7 @@
         //结束显示的分页按钮
         showPageEnd: 100,
         //分页数据
-        arrayData: [],
+        arrayData: arrayData,
 
         //搜索的项
         searchname:"",
@@ -223,10 +230,25 @@
         addName:"",
         addAge:"",
 
-        // 删除用户记录索引
-        nowIndex:-100
 
+        // 删除和编辑用户记录索引
+        nowIndex:-100,
+
+
+        //定义一些临时的变量用来存取编辑的内容
+        EditingIndex:-100,
+        EditingName:"",
+        EditingAge:"",
+
+        //模拟分页中的数据
+        newPageInfo:[],
+
+        //弹框默认隐藏
+        isShowEdit:false
       }
+    },
+    components: {
+      editModal:editModal
     },
     computed: {//计算属性
       filterArrayData: function () {
@@ -243,12 +265,34 @@
     },
     created: function () {
       this.showPage(this.pageCurrent, null, true);
-
     },
     methods: {
+      handleClose: function () {//关闭对话框隐藏当前的模块
+        $('#EditModal').modal('hide');
+        this.isShowEdit=false;
+      },
+      handleEdit: function () {
+        var newName=arguments[0];
+        var newAge=arguments[1];
+        var this_index=arguments[2];
+        //修改表单中的对应索引的值  将从编辑修改项取到的值，渲染到页面
+        this.arrayData[this_index].name=newName;
+        this.arrayData[this_index].age=newAge;
+        $('#EditModal').modal('hide');
+        this.isShowEdit=false;
+      },
       showModalDel:function(index){//删除用户
         $('#layer').modal('show');
         this.nowIndex=index;
+      },
+      showModalEdit: function (_index,name,age) {//编辑用户
+        this.isShowEdit=true;
+        this.EditingName=name;
+        this.EditingAge=age;
+        this.EditingIndex=_index;
+        window.setTimeout(function () {
+          $('#EditModal').modal('show');
+        },200);
       },
       deleteMsg: function (index) {
           this.arrayData.splice(index,1);
@@ -324,7 +368,7 @@
           //getData();
 
            this.pageCurrent = pageIndex;
-           this.arrayData = newPageInfo;
+           //this.arrayData = newPageInfo;
 
           //计算分页按钮数据 20 5
           if (this.pageCount > this.showPages) {
