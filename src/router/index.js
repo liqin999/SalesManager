@@ -37,43 +37,51 @@ var  router = new Router({//路由配置项 嵌套路由
   routes: [
     {
       path: '/',
-      component: bi,//初始路由显示
-      alias: '/home'//组件的别名
+      component: bi,//初始路由显示bi bi1
+      children:[
+        {
+          path: '',
+          components: {
+            default: bi,
+            center: bi1
+          }
+        }
+      ]
     },
     {
       path: '/bi',//动态路由的形式
       component: bi,
       children: [
         {
-          path: '/bi/tj/bi1',
+          path: 'tj/bi1',
           components: {
             default: bi,
             center: bi1//命名路由
           }
         },
         {
-          path: '/bi/tj/bi2',
+          path: 'tj/bi2',
           components: {
             default: bi,
             center: bi2
           }
         },
         {
-          path: '/bi/tj/bi3',
+          path: 'tj/bi3',
           components: {
             default: bi,
             center: bi3
           }
         },
         {
-          path: '/bi/xt/bi4',
+          path: 'xt/bi4',
           components: {
             default: bi,
             center: bi4
           }
         },
         {
-          path: '/bi/xt/bi5',
+          path: 'xt/bi5',
           components: {
             default: bi,
             center: bi5
@@ -92,7 +100,7 @@ var  router = new Router({//路由配置项 嵌套路由
       component: bs,
       children: [
         {
-          path: '/bs/ggzy/sw1',
+          path: 'ggzy/sw1',
           name: 'bs1',
           components: {
             default: bs,
@@ -100,7 +108,7 @@ var  router = new Router({//路由配置项 嵌套路由
           }
         },
         {
-          path: '/bs/ggzy/sw2',
+          path: 'ggzy/sw2',
           name: 'bs2',
           components: {
             default: bs,
@@ -108,7 +116,7 @@ var  router = new Router({//路由配置项 嵌套路由
           }
         },
         {
-          path: '/bs/khdw/sw3',
+          path: 'khdw/sw3',
           name: 'bs3',
           components: {
             default: bs,
@@ -116,7 +124,7 @@ var  router = new Router({//路由配置项 嵌套路由
           }
         },
         {
-          path: '/bs/tjkh/sw4',
+          path: 'tjkh/sw4',
           name: 'bs4',
           components: {
             default: bs,
@@ -136,7 +144,7 @@ var  router = new Router({//路由配置项 嵌套路由
       component: order,
       children: [
         {
-          path: '/order/ddgl/order1',
+          path: 'ddgl/order1',
           name: 'order1',
           components: {
             default: order,
@@ -144,7 +152,7 @@ var  router = new Router({//路由配置项 嵌套路由
           }
         },
         {
-          path: '/order/ddgl/order2',
+          path: 'ddgl/order2',
           name: 'order2',
           components: {
             default: order,
