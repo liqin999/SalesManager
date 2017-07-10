@@ -53,7 +53,8 @@ var  router = new Router({//路由配置项 嵌套路由
       component: bi,
       children: [
         {
-          path: 'tj/bi1',
+        /*  path: 'tj/bi1',*/
+          path: '',//默认项
           components: {
             default: bi,
             center: bi1//命名路由
@@ -100,7 +101,8 @@ var  router = new Router({//路由配置项 嵌套路由
       component: bs,
       children: [
         {
-          path: 'ggzy/sw1',
+          //path: 'ggzy/sw1',
+          path: '',
           name: 'bs1',
           components: {
             default: bs,
@@ -144,7 +146,8 @@ var  router = new Router({//路由配置项 嵌套路由
       component: order,
       children: [
         {
-          path: 'ddgl/order1',
+          /*path: 'ddgl/order1',*/
+          path: '',//默认项
           name: 'order1',
           components: {
             default: order,
