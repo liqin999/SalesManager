@@ -3,8 +3,12 @@
     <h2>过滤器排序功能：</h2>
     {{message | capitalize }}
     <hr/>
-    <input type="button" value="年龄升序" @click="sortFn(0)" style="margin-left: 20px;margin-bottom: 20px;"/>
-    <input type="button" value="年龄降序" @click="sortFn(1)" style="margin-left: 20px;margin-bottom: 20px;"/>
+    <input type="button" value="年龄升序" @click="sortFn(0,'age')" style="margin-left: 20px;margin-bottom: 20px;"/>
+    <input type="button" value="年龄降序" @click="sortFn(1,'age')" style="margin-left: 20px;margin-bottom: 20px;"/>
+
+    <input type="button" value="姓名升序" @click="sortFn(0,'name')" style="margin-left: 20px;margin-bottom: 20px;"/>
+    <input type="button" value="姓名降序" @click="sortFn(1,'name')" style="margin-left: 20px;margin-bottom: 20px;"/>
+
     <input type="button" value="新增" @click="addFn" style="margin-left: 20px;margin-bottom: 20px;"/>
     <table border="1" style="margin: 0 auto">
       <thead>
@@ -34,7 +38,7 @@
             age:12
           },
           {
-            name:"zhangsan",
+            name:"daiwei",
             age:10
           },
           {
@@ -46,7 +50,7 @@
             age:33
           },
           {
-            name:"zhaoliu2",
+            name:"xiaoming",
             age:13
           }
         ]
@@ -66,16 +70,16 @@
           age:22
         })
       },
-      sortFn: function (flag) {
+      sortFn: function (flag,str) {
         var temp={};
         if(flag == 0){
           temp = this.dataList[0];
           for(var i=1;i<this.dataList.length;i++){
-            if(this.dataList[i].age < this.dataList[i-1].age){
+            if(this.dataList[i][str] < this.dataList[i-1][str]){
               temp = this.dataList[i-1];
               this.dataList[i-1] = this.dataList[i];
               this.dataList[i] = temp;
-              this.sortFn(0);//每次执行之后，再次调用这个方法，执行函数，递归
+              this.sortFn(0,str);//每次执行之后，再次调用这个方法，执行函数，递归
             }else{
               temp=this.dataList[i-1]
             }
@@ -83,11 +87,11 @@
         }else if(flag == 1){//将temp保存最大值
           temp = this.dataList[0];
           for(var i=1;i<this.dataList.length;i++){
-            if(this.dataList[i].age > this.dataList[i-1].age){
+            if(this.dataList[i][str] > this.dataList[i-1][str]){
               temp = this.dataList[i];
               this.dataList[i] = this.dataList[i-1];
               this.dataList[i-1] = temp;
-              this.sortFn(1)
+              this.sortFn(1,str)
             }else{
               temp=this.dataList[i-1];
             };
