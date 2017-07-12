@@ -305,7 +305,7 @@
       saveAddData: function () {//保存新增的用户信息
         if(this.addName && this.addAge){
           console.log(this.addName+","+this.addAge);//构造函数this代指当前对象的实例
-          this.arrayData.push({
+          this.arrayData.unshift({
             "name":this.addName,
             "age":this.addAge
           })
@@ -368,7 +368,7 @@
           //getData();
 
            this.pageCurrent = pageIndex;
-           //this.arrayData = newPageInfo;
+           this.arrayData = newPageInfo;
 
           //计算分页按钮数据 20 5
           if (this.pageCount > this.showPages) {
