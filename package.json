@@ -11,6 +11,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "echarts": "^3.6.2",
     "jquery": "^2.2.3",
     "simple-vue-validator": "^0.13.3",
     "vee-validate": "^2.0.0-rc.6",

@@ -7,8 +7,8 @@
           </div>
         <form class="form-inline" style="margin-bottom: 30px;">
           <div class="form-group">
-            <input type="text" placeholder="姓名" class="form-control" v-model="searchname"/>
-            <button type="button" class="btn btn-primary">搜索</button>
+            <input type="text" placeholder="姓名" class="form-control" v-model="searchkey"/>
+            <button type="button" class="btn btn-primary" @click="searchData">搜索</button>
           </div>
           <div class="form-group">
             <button type="button" class="btn btn-danger" @click="resetData()">重置</button>
@@ -225,6 +225,7 @@
         //搜索的项
         searchname:"",
         searchage:"",
+        searchkey:"",
 
         //新增用户信息
         addName:"",
@@ -267,6 +268,24 @@
       this.showPage(this.pageCurrent, null, true);
     },
     methods: {
+      searchData:function(){//元素的过滤搜索
+        var that = this;
+        var tempData = this.arrayData;//将生成的数据保存起来
+        if(this.searchkey != "") {
+          this.arrayData = [];//将数据清空
+          tempData.forEach(function (elem) {//item是一个对象
+            for (var i in elem) {
+              if (elem[i].toString().indexOf(that.searchkey) > -1) {//找到对应的项  toString转成字符串  indexOf
+                that.arrayData.push(elem);
+                return;
+              }
+            }
+          })
+        }else {
+          this.arrayData=tempData;
+          console.log(tempData)
+        }
+      },
       handleClose: function () {//关闭对话框隐藏当前的模块
         $('#EditModal').modal('hide');
         this.isShowEdit=false;
@@ -317,6 +336,10 @@
         this.searchname="";//将数据清空，由于数据驱动视图实时的更新，所以恢复到原始的数据
       },
       showPage: function (pageIndex, $event, forceRefresh) {//显示分页的代码
+
+
+
+
         var This=this;
         if (pageIndex > 0) {
           if (pageIndex > this.pageCount) {

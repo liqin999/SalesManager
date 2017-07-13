@@ -42,7 +42,6 @@ var  router = new Router({//路由配置项 嵌套路由
         {
           path: '',
           components: {
-            default: bi,
             center: bi1
           }
         }
@@ -56,35 +55,30 @@ var  router = new Router({//路由配置项 嵌套路由
         /*  path: 'tj/bi1',*/
           path: '',//默认项
           components: {
-            default: bi,
             center: bi1//命名路由
           }
         },
         {
           path: 'tj/bi2',
           components: {
-            default: bi,
             center: bi2
           }
         },
         {
           path: 'tj/bi3',
           components: {
-            default: bi,
             center: bi3
           }
         },
         {
           path: 'xt/bi4',
           components: {
-            default: bi,
             center: bi4
           }
         },
         {
           path: 'xt/bi5',
           components: {
-            default: bi,
             center: bi5
           }
         },
@@ -105,7 +99,6 @@ var  router = new Router({//路由配置项 嵌套路由
           path: '',
           name: 'bs1',
           components: {
-            default: bs,
             center: bs1//命名路由
           }
         },
@@ -113,7 +106,6 @@ var  router = new Router({//路由配置项 嵌套路由
           path: 'ggzy/sw2',
           name: 'bs2',
           components: {
-            default: bs,
             center: bs2
           }
         },
@@ -121,7 +113,6 @@ var  router = new Router({//路由配置项 嵌套路由
           path: 'khdw/sw3',
           name: 'bs3',
           components: {
-            default: bs,
             center: bs3
           }
         },
@@ -129,7 +120,6 @@ var  router = new Router({//路由配置项 嵌套路由
           path: 'tjkh/sw4',
           name: 'bs4',
           components: {
-            default: bs,
             center: bs4
           }
         },
@@ -150,7 +140,6 @@ var  router = new Router({//路由配置项 嵌套路由
           path: '',//默认项
           name: 'order1',
           components: {
-            default: order,
             center: order1
           }
         },
@@ -158,7 +147,6 @@ var  router = new Router({//路由配置项 嵌套路由
           path: 'ddgl/order2',
           name: 'order2',
           components: {
-            default: order,
             center: order2
           }
         },
