@@ -11,6 +11,7 @@ import bi2 from '@/views/bi/bi2'
 import bi3 from '@/views/bi/bi3'
 import bi4 from '@/views/bi/bi4'
 import bi5 from '@/views/bi/bi5'
+import editbi5 from '@/views/bi/editbi5'
 
 import bs1 from '@/views/bs/bs1'
 import bs2 from '@/views/bs/bs2'
@@ -82,6 +83,13 @@ var  router = new Router({//路由配置项 嵌套路由
             center: bi5
           }
         },
+         {
+          path: 'xt/editbi5',
+          name:'editbi5',
+          components: {
+            center: editbi5
+          }
+         },
         {
           path:"*",//子路由中默认显示
           redirect: {path: '/bi'}

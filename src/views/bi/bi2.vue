@@ -6,7 +6,8 @@
       <input type="text" 
       placeholder="请选择" 
       v-model="getVal">
-      <drop :data='sportList' v-on:getData="handleData"></drop>
+      <drop :data='sportList' v-on:getData="handleData">
+      </drop>
     </div>
 </template>
 <script>
