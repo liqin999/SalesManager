@@ -1,7 +1,7 @@
 <template>
 <div class="mt50">
     <span style="font-size: 30px;color: darkblue">
-        我是element-ui组件的内容
+        我是element-ui组件的内容(实际查看用户信息有变)
     </span>
   <el-table
     :data="tableData"
@@ -22,7 +22,7 @@
     </el-table-column>
     <el-table-column
       label="姓名"
-      width="120">
+      >
        <template scope="scope">
         <span style="margin-left: 10px">{{ scope.row.name }}</span>
       </template>
@@ -41,12 +41,13 @@
     <el-table-column
       prop="address"
       label="地址"
+       width="380"
      >
     </el-table-column>
     <el-table-column
       prop="zip"
       label="邮编"
-      width="200">
+      width="190">
     </el-table-column>
     <el-table-column
       fixed="right"
@@ -116,6 +117,8 @@ var str = "I am singing while you're dancing";
     methods:{
        handleClick(data) {
         console.log(data);
+        //在真是的场景中，点击查看用户的信息的时候，将当前的唯一的标示（id）作为参数，传递到params params: { code: scope.row.busiOppoCode }  然后在路由中设置动态路由信息  path: 'xt/editbi5/:code',
+        // 然后在编辑页面中（editbi5）向后台发送ajax请求，并传递参数（busiOppoCode:this.$route.params.code）根据路由信息对象中的唯一的参数信息对象，传递到后台，得到数据，渲染到对应的editbi5页面。
         this.$router.push({
           name:'editbi5',
           params:{
