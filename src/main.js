@@ -13,7 +13,11 @@ import '@/assets/lib/vue-resource.js'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-Vue.use(ElementUI)
+
+import Loading from '@/components/loading/index.js'
+
+Vue.use(ElementUI);
+Vue.use(Loading);
 
 Vue.config.productionTip = false;
 

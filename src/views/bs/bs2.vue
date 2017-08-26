@@ -1,5 +1,18 @@
 <template>
-  <div class="mt50" style="font-size: 10px;color: blue">我是BS第2个内容</div>
+  <div class="mt50">
+    <span style="font-size: 10px;color: blue">
+      自定义全局的Loading组件
+    </span>
+    <Loading></Loading>
+    <hr/>
+
+    <div>
+      下一个的加载组件:
+    </div>
+    <Loading></Loading>
+
+
+  </div>
 </template>
 
 <script>
