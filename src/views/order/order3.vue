@@ -2,13 +2,13 @@
   <div class="container body-content">
     <div id="test" class="form-group">
       <div class="form-group">
-          <div class="page-header">
-            后台表格数据
-          </div>
+        <div class="page-header">
+          <span style="color: cyan;font-size:35px;;">利用vuex状态管理后台表格数据:{{getNum}}</span>
+        </div>
         <form class="form-inline" style="margin-bottom: 30px;">
           <div class="form-group">
-            <input type="text" placeholder="姓名" class="form-control" v-model="searchkey"/>
-            <button type="button" class="btn btn-primary" @click="searchData">搜索</button>
+            <input type="text" placeholder="姓名" class="form-control" v-model="searchname"/>
+            <button type="button" class="btn btn-primary">搜索</button>
           </div>
           <div class="form-group">
             <button type="button" class="btn btn-danger" @click="resetData()">重置</button>
@@ -18,7 +18,6 @@
               新增
             </button>
           </div>
-
         </form>
         <table class="table table-bordered table-responsive table-striped table-hover">
           <thead>
@@ -35,9 +34,9 @@
             <td width="30%">{{item.age}}</td>
             <td>
               <a href="javascript:void(0)">
-                   <button class="btn btn-primary btn-sm" @click="showModalEdit(index,item.name,item.age)" data-toggle="modal">编辑</button>
-                   <button class="btn btn-warning btn-sm" @click="showModalDel(index,item.age)" data-toggle="modal">删除</button>
-               </a>
+                <button class="btn btn-primary btn-sm" @click="showModalEdit(index,item.name,item.age)" data-toggle="modal">编辑</button>
+                <button class="btn btn-warning btn-sm" @click="showModalDel(index,item.age)" data-toggle="modal">删除</button>
+              </a>
             </td>
           </tr>
           </tbody>
@@ -93,7 +92,7 @@
                   />
                </span>
           <span>{{pageCurrent}}/{{pageCount}}</span>
-          </div>
+        </div>
       </div>
     </div>
     <!-- Add Modal -->
@@ -121,9 +120,9 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
             <button type="button" class="btn btn-primary" @click="saveAddData()">保存</button>
           </div>
-          </div>
         </div>
       </div>
+    </div>
 
     <!--edit Model 组件方式引入-->
 
@@ -146,10 +145,12 @@
         </div>
       </div>
     </div>
-    </div>
-   </div>
+  </div>
+  </div>
 </template>
 <script>
+  //引入状态管理
+  import { mapState,mapGetters,mapActions,mapMutations} from 'vuex'//在组件中使用Mutations
   import editModal from './editModal.vue'
   var arrayData=[
     {
@@ -225,16 +226,13 @@
         //搜索的项
         searchname:"",
         searchage:"",
-        searchkey:"",
 
         //新增用户信息
         addName:"",
         addAge:"",
 
-
         // 删除和编辑用户记录索引
         nowIndex:-100,
-
 
         //定义一些临时的变量用来存取编辑的内容
         EditingIndex:-100,
@@ -252,6 +250,9 @@
       editModal:editModal
     },
     computed: {//计算属性
+      getNum: function () {
+        return this.$store.state.count
+      },
       filterArrayData: function () {
         var self = this;
         return self.arrayData.filter(function (item) {
@@ -268,24 +269,6 @@
       this.showPage(this.pageCurrent, null, true);
     },
     methods: {
-      searchData:function(){//元素的过滤搜索
-        var that = this;
-        var tempData = this.arrayData;//将生成的数据保存起来
-        if(this.searchkey != "") {
-          this.arrayData = [];//将数据清空
-          tempData.forEach(function (elem) {//item是一个对象
-            for (var i in elem) {
-              if (elem[i].toString().indexOf(that.searchkey) > -1) {//找到对应的项  toString转成字符串  indexOf
-                that.arrayData.push(elem);
-                return;
-              }
-            }
-          })
-        }else {
-          this.arrayData=tempData;
-          console.log(tempData)
-        }
-      },
       handleClose: function () {//关闭对话框隐藏当前的模块
         $('#EditModal').modal('hide');
         this.isShowEdit=false;
@@ -314,7 +297,7 @@
         },200);
       },
       deleteMsg: function (index) {
-          this.arrayData.splice(index,1);
+        this.arrayData.splice(index,1);
       },
       showModal: function () {//新增用户  向数组中push 新增加一条数据 this是当前对象的实例
         this.addName="";//新增的时候表单置为空
@@ -324,7 +307,7 @@
       saveAddData: function () {//保存新增的用户信息
         if(this.addName && this.addAge){
           console.log(this.addName+","+this.addAge);//构造函数this代指当前对象的实例
-          this.arrayData.unshift({
+          this.arrayData.push({
             "name":this.addName,
             "age":this.addAge
           })
@@ -332,14 +315,10 @@
         $('#myModal').modal('hide');
       },
       resetData: function () {
-       //找到对应的文本框，让里面的的输入的值，清空
+        //找到对应的文本框，让里面的的输入的值，清空
         this.searchname="";//将数据清空，由于数据驱动视图实时的更新，所以恢复到原始的数据
       },
       showPage: function (pageIndex, $event, forceRefresh) {//显示分页的代码
-
-
-
-
         var This=this;
         if (pageIndex > 0) {
           if (pageIndex > this.pageCount) {
@@ -369,11 +348,11 @@
           //测试数据 随机生成的
           var newPageInfo = [];
           for (var i = 0; i < this.pagesize; i++) {
-           newPageInfo[newPageInfo.length] = {
-           name: "test" + (i + (pageIndex - 1) * 20),
-           age: (i + (pageIndex - 1) * 20)
-           };
-           }
+            newPageInfo[newPageInfo.length] = {
+              name: "test" + (i + (pageIndex - 1) * 20),
+              age: (i + (pageIndex - 1) * 20)
+            };
+          }
           var that=this;
           function getData(){//动态获取数据  slice可以控制显示的条数
             that.$http.get('../js/data.json',{
@@ -390,8 +369,8 @@
           }
           //getData();
 
-           this.pageCurrent = pageIndex;
-           this.arrayData = newPageInfo;
+          this.pageCurrent = pageIndex;
+          //this.arrayData = newPageInfo;
 
           //计算分页按钮数据 20 5
           if (this.pageCount > this.showPages) {
