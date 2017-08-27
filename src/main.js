@@ -16,6 +16,8 @@ import 'element-ui/lib/theme-default/index.css'
 
 import Loading from '@/components/loading/index.js'
 
+import store from '@/store/index.js'
+
 Vue.use(ElementUI);
 Vue.use(Loading);
 
@@ -25,6 +27,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 });
