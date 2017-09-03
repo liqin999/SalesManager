@@ -63,7 +63,7 @@
       nextmemu:[
         {id:1,menu:"模板管理",info:"bi4"},
         {id:2,menu:"商城设置",info:"bi5"},
-        {id:3,menu:"验证码设置",info:"bi6"}
+        {id:3,menu:"手机端mint-ui",info:"bi6"}
       ]
     },
     {

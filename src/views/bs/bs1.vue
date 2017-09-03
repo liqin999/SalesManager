@@ -261,7 +261,8 @@ import citys from '@/utils/citys.js'
       },
       ChangeRegions(){
         console.log(this.formCreate.provinceOptions);//可以将选择的数据传递到后台
-      }
+      },
+      handleChange(){}
     }
   }
 
