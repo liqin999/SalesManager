@@ -35,7 +35,7 @@
 import citys from '@/utils/citys.js'
   export default {
     mounted(){
-        console.log(citys);
+       // console.log(citys);
     },
     data: function () {
       return {

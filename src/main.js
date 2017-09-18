@@ -28,7 +28,13 @@ Vue.config.productionTip = false;
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
-Vue.use(MintUI)
+import Axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios,Axios);//将引入的作为vue中的插件，也就是扩展到原型上面去  在其他的组件中可以直接使用 this表示每个组件的实例
+//this.$http.get
+
+Vue.use(MintUI);
 
 /* eslint-disable no-new */
 new Vue({
@@ -38,8 +44,4 @@ new Vue({
   template: '<App/>',
   components: { App }
 });
-
-/*$(function () {
- $("body").css("backgroundColor","#ddd")
-})*/
 
