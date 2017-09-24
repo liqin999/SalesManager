@@ -15,12 +15,12 @@
     <div>
       <div>{{msg}}</div>
       <input type="button" value='反转字符串' @click='reverse'>
+      <div>变化之后的内容：{{msg}}</div>
     </div>
 
 
 </div>
 </template>
-
 <script>
 import citys from '@/utils/citys.js'
   export default {
@@ -45,19 +45,22 @@ import citys from '@/utils/citys.js'
     },
     methods:{
       reverse(){//取值，改变 ,赋值的形式，可以借助于第三个变量
-        let str = this.msg;
+        /*let str = this.msg;
         str=str.split("").reverse().join("");
         console.log(str);
-        this.msg = str;//将改变之后的值，重新的赋值给页面中
-
-        //this.msg=this.msg.split("").reverse().join("");
-
+        this.msg = str;*/
+        //将改变之后的值，重新的赋值给页面中
+        this.msg=this.msg.split("").reverse().join("");
       },
       ChangeRegions(){
         console.log(this.formCreate.provinceOptions);//可以将选择的数据传递到后台
       }
     }
   }
+
+
+
+
 
 </script>
 <style>
