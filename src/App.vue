@@ -40,15 +40,7 @@
               <li><a href="#">
                 商务特批
               </a></li>
-              <li><a href="#">
-                系统设置
-              </a></li>
-              <li><a href="#">
-                400预占
-              </a></li>
-              <li><a href="#">
-                呼叫中心
-              </a></li>
+
            </ul>
           <div class="head-right" >
               <div class="mt10">
@@ -87,6 +79,7 @@ window.onload= function () {
 </script>
 
 <style>
+  .collapse{display: block}
 .s-heade{color: #fff}
 .mainCon{ width: 100%;border: 3px solid green;min-height: 800px; }
 .rightInfo{float: left;margin-left: 200px }
@@ -94,6 +87,21 @@ window.onload= function () {
 .head-right{width: 200px;float: right}
 .head-right .pointer:hover{text-decoration: underline}
 .nav-pills{background: url("./assets/img/skin/headbg.jpg") repeat-x 0 0;  height: 70px;  clear: both}
+  .navbar-nav>li{float: left}
+  .navbar-nav{overflow:hidden}
 .navbar-nav>li>a{color: #fff}
+  @media (max-width: 768px)
+  {
+    .headlogo {
+     width: 195px;
+      height: 35px;
+    }
+    .nav>li>a{
+      padding: 10px 9px;
+      font-size: 8px;
+    }
+
+  }
+  
 #app {  font-family: 'Avenir', Helvetica, Arial, sans-serif;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;  text-align: center;  color: #2c3e50;  border: 1px solid firebrick;}
 </style>

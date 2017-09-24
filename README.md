@@ -22,6 +22,11 @@ npm install --save simple-vue-validator
 
 npm i element-ui -S
 
+npm install axios
+npm install vue-axios
+
+npm i mint-ui --save
+
 
 ```
 
