@@ -79,7 +79,13 @@ window.onload= function () {
 </script>
 
 <style>
-  .collapse{display: block}
+/*由于头部导航个侧边栏的用到的类名的冲突，所以增加一个手机端的适配方案*/
+ @media (max-width: 768px){
+    .collapse{display: block}
+ }
+
+
+
 .s-heade{color: #fff}
 .mainCon{ width: 100%;border: 3px solid green;min-height: 800px; }
 .rightInfo{float: left;margin-left: 200px }

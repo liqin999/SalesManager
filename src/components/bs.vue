@@ -40,15 +40,15 @@
       title:"公共资源",//返回名字
       msg:"ggzy",
       nextmemu:[
-        {menu:"公海数据",info:"sw1"},
-        {menu:"领导推荐",info:"sw2"}
+        {menu:"element基本组件",info:"sw1"},
+        {menu:"商品循环组件",info:"sw2"}
       ]
     },
     {
       title:"客户定位",
       msg:"khdw",
       nextmemu:[
-        {menu:"客户定位",info:"sw3"}
+        {menu:"Axios请求",info:"sw3"}
       ]
     },
     {
