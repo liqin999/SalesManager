@@ -6,7 +6,13 @@
 .sideList{padding-top:50px;}
 .slideWrap{border-top: 1px solid #337ab7}
 .slideWrap .slideHead{height: 30px;line-height: 30px;background-color: #ccc}
-.slideWrap .slideInner:hover{background-color: #ddd;opacity: 0.6;}
+.slideWrap .slideInner{height: 35px;line-height: 35px;}
+.slideWrap .slideInner:hover{background-color: purple;opacity: 0.6;color: #fff}
+
+
+@media (max-width: 768px){
+	.sildecollapse{display: none;}
+}
 
 
 /*右边的主题部分*/

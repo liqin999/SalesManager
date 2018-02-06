@@ -15,6 +15,7 @@
     <div>
       <div>{{msg}}</div>
       <input type="button" value='反转字符串' @click='reverse'>
+      <div>变化之后的内容：{{msg}}</div>
     </div>
 
 <h2>一般方式的三级联动参考element的级联菜单选项</h2>
@@ -29,7 +30,6 @@
 
 </div>
 </template>
-
 <script>
   // 学会举一反三 并结合实际情况进行分析原因
 import citys from '@/utils/citys.js'
@@ -251,13 +251,12 @@ import citys from '@/utils/citys.js'
     },
     methods:{
       reverse(){//取值，改变 ,赋值的形式，可以借助于第三个变量
-        let str = this.msg;
+        /*let str = this.msg;
         str=str.split("").reverse().join("");
         console.log(str);
-        this.msg = str;//将改变之后的值，重新的赋值给页面中
-
-        //this.msg=this.msg.split("").reverse().join("");
-
+        this.msg = str;*/
+        //将改变之后的值，重新的赋值给页面中
+        this.msg=this.msg.split("").reverse().join("");
       },
       ChangeRegions(){
         console.log(this.formCreate.provinceOptions);//可以将选择的数据传递到后台
@@ -265,6 +264,10 @@ import citys from '@/utils/citys.js'
       handleChange(){}
     }
   }
+
+
+
+
 
 </script>
 <style>

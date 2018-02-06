@@ -52,17 +52,17 @@
       title:"统计分析",//返回名字
       msg:"tj",
       nextmemu:[
-        {id:1,menu:"经营概况",info:"bi1"},
-        {id:2,menu:"会员概况",info:"bi2"},
-        {id:3,menu:"订单统计",info:"bi3"}
+        {id:1,menu:"过滤排序筛选",info:"bi1"},
+        {id:2,menu:"下拉组件1",info:"bi2"},
+        {id:3,menu:"下拉组件2",info:"bi3"}
       ]
     },
     {
       title:"系统设置",
       msg:"xt",
       nextmemu:[
-        {id:1,menu:"模板管理",info:"bi4"},
-        {id:2,menu:"商城设置",info:"bi5"},
+        {id:1,menu:"vuex",info:"bi4"},
+        {id:2,menu:"ele-table",info:"bi5"},
         {id:3,menu:"手机端mint-ui",info:"bi6"}
       ]
     },
